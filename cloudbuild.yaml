@@ -10,7 +10,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build', 
-      '-t', 'us-central1-docker.pkg.dev/cloud-infrastructure-448600/anish-100890955/assignment2:${SHORT_SHA}', 
+      '-t', 'us-central1-docker.pkg.dev/midterm-451519/rahul-100953252/app:${SHORT_SHA}', 
       '.'
     ]
     
@@ -18,7 +18,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push', 
-      'us-central1-docker.pkg.dev/cloud-infrastructure-448600/anish-100890955/assignment2:${SHORT_SHA}'
+      'us-central1-docker.pkg.dev/midterm-451519/rahul-100953252/app:${SHORT_SHA}'
     ]
   
   # Step 4: Deploy to Cloud Run using gcloud CLI
@@ -29,13 +29,13 @@ steps:
       - 'deploy'
       - 'assignment2'  # Cloud Run service name
       - '--image'
-      - 'us-central1-docker.pkg.dev/cloud-infrastructure-448600/anish-100890955/assignment2:${SHORT_SHA}'
+      - 'us-central1-docker.pkg.dev/midterm-451519/rahul-100953252/app:${SHORT_SHA}'
       - '--region'
       - 'us-central1'  # Region for Cloud Run
       - '--allow-unauthenticated'  # Make service publicly accessible
 
 images:
-  - 'us-central1-docker.pkg.dev/cloud-infrastructure-448600/anish-100890955/assignment2:${SHORT_SHA}'
+  - 'us-central1-docker.pkg.dev/midterm-451519/rahul-100953252/app:${SHORT_SHA}'
 
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
