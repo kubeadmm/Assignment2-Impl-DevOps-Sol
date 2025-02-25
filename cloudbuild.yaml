@@ -34,7 +34,7 @@ steps:
           --allow-unauthenticated \
           --port=8080  # Ensure it listens on the correct port
 
-  # Step 5: Verify the deployment (Optional but recommended)
+  # Step 5: Verify the deployment
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
